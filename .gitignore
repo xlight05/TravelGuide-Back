@@ -62,3 +62,8 @@ typings/
 # next.js build output
 .next
 
+/config/keys.js
+.idea/vcs.xml
+.idea/watcherTasks.xml
+.idea/workspace.xml
+config/passport-connection.js
