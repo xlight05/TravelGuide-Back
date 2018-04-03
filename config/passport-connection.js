@@ -14,23 +14,21 @@ passport.use(
 
         User.findOne ({googleId:profile.id}).then((currentUser)=>{
             if (currentUser){
+                console.log(currentUser);
+                done(null,currentUser);
+            }else {
+                new User ({
+                    name:profile.name,
+                    email:profile.email,
+                    country:profile.country,
+                    googleId:profile.googleId
 
+                }).save().then((createdUser)=>{
+                    console.log(createdUser);
+                    done(null,createdUser);
+                });
             }
-        })
-
-
-
-        console.log(profile);
-        new User ({
-            name:profile.name,
-            email:profile.email,
-            country:profile.country,
-            googleId:profile.googleId
-
-        }).save().then((createdUser)=>{
-            console.log(createdUser);
         });
 
-        done();
     })
 );
