@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 
-let locationSchema = new Schema({
+let restaurantSchema = new Schema({
     id:{
         type: Number,
         required:true
@@ -11,7 +11,7 @@ let locationSchema = new Schema({
         type: String,
         required:true
     },
-    description:{
+    type:{
         type: String,
         required:true
     },
@@ -26,10 +26,14 @@ let locationSchema = new Schema({
     altitude:{
         type:Number,
         required:true
+    },
+    img: {
+        type:String,
+        required:false
     }
 
 });
 
-let Location = mongoose.model('Location',locationSchema);
+let Restaurant = mongoose.model('Restaurant',restaurantSchema);
 
-module.exports = {Location};
+module.exports = {Restaurant};
