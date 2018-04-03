@@ -14,6 +14,10 @@ let userSchema = new Schema({
     country:{
         type:String,
         required:true
+    },
+    googleId: {
+        type:String,
+        required:true
     }
 });
 
