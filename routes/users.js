@@ -1,6 +1,6 @@
 const express = require('express');
-const SHA256 = require("crypto-js/sha256");
 const router = express.Router();
+const User = require('./../models/users');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -8,22 +8,23 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/signup',(req,res)=>{
-    let username = req.body.username;
-    let password = req.body.password;
-    let email = req.body.email;
-    let country = req.body.country;
-    //TODO Do the fucking validations
-    if ((username&&password&&email&&country)){
-        res.send("Success");
-    }
-    else {
-        res.send("Invalid");
-    }
+    res.redirect('./auth/google');
 });
 
 router.post('/login',(req,res)=>{
-    //TODO Implement
-    res.send("Works");
+    res.redirect('./auth/google');
+});
+
+router.get('/profile/:email',(req,res)=>{
+    let email = req.params.email;
+    User.findOne ({email}).then((currentUser)=>{
+        if (currentUser) {
+            res.send(currentUser);
+        }
+        else {
+            res.send("Not found");
+        }
+    });
 });
 
 module.exports = router;
