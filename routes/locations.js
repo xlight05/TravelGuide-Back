@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Location = require('./../models/locations');
 
-router.add('/add',(req,res)=>{
+router.post('/add',(req,res)=>{
     let id = req.body.id;
     let name = req.body.name;
     let description = req.body.description;
@@ -25,6 +25,17 @@ router.add('/add',(req,res)=>{
     else {
         res.send("Invalid data.")
     }
-    res.send("Works");
+});
+
+router.get ('/search/:name',(req,res)=>{
+    let name = req.params.name;
+    Location.findOne ({name}).then((currentUser)=>{
+        if (currentUser) {
+            res.send(currentUser);
+        }
+        else {
+            res.send("Not found");
+        }
+    });
 });
 
