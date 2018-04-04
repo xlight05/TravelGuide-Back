@@ -4,9 +4,11 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 4000;
 const passport = require('passport');
+const helmet = require('helmet');
 
+
+const PORT = process.env.PORT || 4000;
 const passportSetup = require('./config/passport-connection');
 const index = require('./routes/index');
 const users = require('./routes/users');
@@ -14,6 +16,8 @@ const auth = require('./routes/auth');
 
 
 const app = express();
+
+app.use(helmet());
 
 // // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
@@ -32,12 +36,14 @@ app.use(passport.initialize());
 app.use('/', index);
 app.use('/users', users);
 app.use('/auth', auth);
+app.use('/locations',locations);
+app.use('/restaurants',restaurants);
 
 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
