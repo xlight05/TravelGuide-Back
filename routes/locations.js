@@ -18,8 +18,8 @@ router.post('/add',(req,res)=>{
             latitude:lng,
             altitude:alt
 
-        }).save().then((createdUser)=>{
-            res.send(createdUser);
+        }).save().then((createdLocation)=>{
+            res.send(createdLocation);
         });
     }
     else {
@@ -29,9 +29,9 @@ router.post('/add',(req,res)=>{
 
 router.get ('/search/:name',(req,res)=>{
     let name = req.params.name;
-    Location.findOne ({name}).then((currentUser)=>{
-        if (currentUser) {
-            res.send(currentUser);
+    Location.findOne ({name}).then((currentLocation)=>{
+        if (currentLocation) {
+            res.send(currentLocation);
         }
         else {
             res.send("Not found");
