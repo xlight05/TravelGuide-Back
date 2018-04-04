@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Location = require('./../models/locations');
 
+
+//Location Add Route
 router.post('/add',(req,res)=>{
     let id = req.body.id;
     let name = req.body.name;
@@ -27,6 +29,7 @@ router.post('/add',(req,res)=>{
     }
 });
 
+//Location Search Route
 router.get ('/search/:name',(req,res)=>{
     let name = req.params.name;
     Location.findOne ({name}).then((currentLocation)=>{

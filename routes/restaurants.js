@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Restaurant = require('./../models/restaurants');
 
+
+//Restaurants Adding route
 router.post('/add',(req,res)=>{
     let id = req.body.id;
     let name = req.body.name;
@@ -29,6 +31,7 @@ router.post('/add',(req,res)=>{
     }
 });
 
+//restaurants search route
 router.get ('/search/:name',(req,res)=>{
     let name = req.params.name;
     Restaurant.findOne ({name}).then((currentRestaurant)=>{

@@ -16,22 +16,24 @@ const auth = require('./routes/auth');
 
 
 const app = express();
-
+/**
+ * Helment JS NPM Module will secure the web application by setting various HTTP headers.
+ * It has follow features
+ * dnsPrefetchControl controls browser DNS prefetching
+ * frameguard to prevent clickjacking
+ * hidePoweredBy to remove the X-Powered-By header
+ * hsts for HTTP Strict Transport Security
+ * ieNoOpen sets X-Download-Options for IE8+
+ * noSniff to keep clients from sniffing the MIME type
+ * xssFilter adds some small XSS protections
+ */
 app.use(helmet());
 
-// // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(passport.initialize());
-
-// app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
@@ -48,16 +50,7 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// // error handler
-// app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
-//
-//   // render the error page
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
+
 
 app.listen(PORT, () => {
     console.log(`Server is open on port ${PORT}`);

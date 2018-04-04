@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
-
+//Location model will be used to store Large Areas, Small Points and even the treasrue hunt locations.
 let locationSchema = new Schema({
     id:{
         type: Number,

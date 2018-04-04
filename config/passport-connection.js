@@ -14,7 +14,24 @@ passport.deserializeUser ((id,done)=>{
     })
 });
 
-
+/**
+ * Google Authentication
+ *
+ * HCI -
+ * We will be using Google Authentication to provide user much easier hassle free login / signup.
+ * User doesn't have to fill any kind of  form . They simply have to click login/signup with Google button then they are done.
+ * We will be using Passport JS Library for that. It gives Oauth2 Implementation for the authentication System.
+ *
+ * We can use their personal information (with their authorization ofc) to provide them better user experience without any hassle.
+ * Example - Their interests , background
+ *
+ *
+ * Security -
+ * We will not store any kind of password inside our database and we will be entirly depending on google for the authentication.
+ * Google will be doing all the hashing and security things therefore we have to worry less about the data security.
+ *
+ *
+ */
 passport.use(
     new GoogleStrategy({
         // options for google strategy

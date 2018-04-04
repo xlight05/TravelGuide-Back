@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
-
+//restaurants Model. It contains id, name,type , lng,lat,alt and img of the restaurant.
 let restaurantSchema = new Schema({
     id:{
         type: Number,
