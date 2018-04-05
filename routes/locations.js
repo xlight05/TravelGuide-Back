@@ -1,5 +1,4 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const Location = require('./../models/locations');
 
 
@@ -41,4 +40,7 @@ router.get ('/search/:name',(req,res)=>{
         }
     });
 });
+
+
+module.exports = router;
 

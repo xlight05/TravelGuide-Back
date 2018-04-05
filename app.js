@@ -13,6 +13,8 @@ const passportSetup = require('./config/passport-connection');
 const index = require('./routes/index');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
+const locations = require('./routes/locations');
+const restaurants = require('./routes/restaurants');
 
 
 const app = express();

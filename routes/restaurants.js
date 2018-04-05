@@ -1,5 +1,4 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const Restaurant = require('./../models/restaurants');
 
 
@@ -44,3 +43,5 @@ router.get ('/search/:name',(req,res)=>{
     });
 });
 
+
+module.exports = router;

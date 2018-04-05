@@ -35,6 +35,11 @@ passport.deserializeUser ((id,done)=>{
 passport.use(
     new GoogleStrategy({
         // options for google strategy
+        /**
+         * Security
+         * We will be storing all sentsitive keys and data in a seperate file called keys.js due to security and legal reasons.
+         * We will add that file to .gitignore file to prevent adding to public sites like github.
+         */
         clientID: keys.google.clientID,
         clientSecret: keys.google.clientSecret,
         callbackURL: '/auth/google/redirect'
