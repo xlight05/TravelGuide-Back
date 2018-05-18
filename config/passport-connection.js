@@ -39,8 +39,8 @@ passport.use(
          * We will be storing all sentsitive keys and data in a seperate file called keys.js due to security and legal reasons.
          * We will add that file to .gitignore file to prevent adding to public sites like github.
          */
-        clientID: keys.google.clientID,
-        clientSecret: keys.google.clientSecret,
+        clientID: '921778900271-hivhneojqakia379sdicf11qkk8s5u49.apps.googleusercontent.com',
+        clientSecret: 'MhihKKTnowtUDSbMct0kq4Qr',
         callbackURL: '/auth/google/redirect'
     }, (accessToken, refreshToken, profile, done) => {
         // check if user already exists in our own db
