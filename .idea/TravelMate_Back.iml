@@ -11,5 +11,6 @@
     <orderEntry type="library" name="express-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="mongoose-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="passport-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="passport-google-oauth2-DefinitelyTyped" level="application" />
   </component>
 </module>

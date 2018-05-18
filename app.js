@@ -9,6 +9,7 @@ const helmet = require('helmet');
 
 
 const PORT = process.env.PORT || 4000;
+const {mongoose}=require('./config/connection');
 const passportSetup = require('./config/passport-connection');
 const index = require('./routes/index');
 const users = require('./routes/users');

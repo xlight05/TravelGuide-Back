@@ -15,6 +15,6 @@ mongoose.Promise = global.Promise;
  * We will be storing all sentsitive keys and data in a seperate file called keys.js due to security and legal reasons.
  * We will add that file to .gitignore file to prevent adding to public sites like github.
  */
-mongoose.connect(keys.mongodb.dbURI);
+mongoose.connect('mongodb://localhost:27017/Travel');
 
 module.exports = {mongoose};

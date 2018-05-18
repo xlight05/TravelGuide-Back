@@ -4,14 +4,12 @@ const keys = require('./keys');
 
 const {User} = require ('./../models/users');
 
-passport.serializeUser ((user,done)=>{
-    done(null,user.id);
+passport.serializeUser(function(user, done) {
+    done(null, user);
 });
 
-passport.deserializeUser ((id,done)=>{
-    User.findById (id).then((user)=>{
-        done(null,user);
-    })
+passport.deserializeUser(function(user, done) {
+    done(null, user);
 });
 
 /**
@@ -32,6 +30,7 @@ passport.deserializeUser ((id,done)=>{
  *
  *
  */
+
 passport.use(
     new GoogleStrategy({
         // options for google strategy
@@ -49,17 +48,24 @@ passport.use(
         User.findOne ({googleId:profile.id}).then((currentUser)=>{
             if (currentUser){
                 console.log(currentUser);
+                console.log("Existing");
                 done(null,currentUser);
+
             }else {
+                console.log(profile);
+                console.log(profile.emails);
                 new User ({
-                    name:profile.name,
-                    email:profile.email,
-                    country:profile.country,
-                    googleId:profile.googleId
+                    name:profile.displayName,
+                    email:profile.emails[0].value,
+                    country:"LK",
+                    googleId:profile.id
 
                 }).save().then((createdUser)=>{
-                    console.log(createdUser);
+                    console.log("Saved");
                     done(null,createdUser);
+                }).catch((err)=>{
+                    console.log(err);
+                    done(null,err);
                 });
             }
         });
