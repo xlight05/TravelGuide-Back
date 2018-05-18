@@ -6,7 +6,7 @@ router.get('/test', function(req, res, next) {
   res.send("Get works");
 });
 
-router.post('/test',function (res,req) {
+router.post('/testz', function(req, res, next) {
     res.send("Post works");
 });
 
