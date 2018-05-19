@@ -27,6 +27,7 @@ router.get('/test',(req,res)=>{
 
 // callback route for google to redirect to
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
+    console.log("Redirect Called");
     res.send('Auth complete.');
 });
 

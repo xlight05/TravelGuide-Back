@@ -58,7 +58,8 @@ passport.use(
                     name:profile.displayName,
                     email:profile.emails[0].value,
                     country:"LK",
-                    googleId:profile.id
+                    googleId:profile.id,
+                    credits:0
 
                 }).save().then((createdUser)=>{
                     console.log("Saved");

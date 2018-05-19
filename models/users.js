@@ -18,6 +18,9 @@ let userSchema = new Schema({
     googleId: {
         type:String,
         required:true
+    },
+    credits: {
+       type:Number
     }
 });
 
