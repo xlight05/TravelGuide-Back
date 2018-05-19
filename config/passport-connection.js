@@ -44,7 +44,7 @@ passport.use(
         callbackURL: '/auth/google/redirect'
     }, (accessToken, refreshToken, profile, done) => {
         // check if user already exists in our own db
-
+        console.log("Auth Called");
         User.findOne ({googleId:profile.id}).then((currentUser)=>{
             if (currentUser){
                 console.log(currentUser);

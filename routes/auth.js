@@ -6,7 +6,8 @@ const {User} = require ('./../models/users');
 // Auth route for google login. We will be using Passport google staratery and OAuth2 for authentication.
 router.get('/google', passport.authenticate('google', {
     scope: ['profile', 'email']
-}));
+})
+);
 
 router.get('/test',(req,res)=>{
     console.log("Route Called");
