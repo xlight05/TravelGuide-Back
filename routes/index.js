@@ -10,10 +10,11 @@ router.get('/test', function(req, res, next) {
 });
 
 router.post('/testz', function(req, res, next) {
-    var jz = {
-        res : "Get works"
-    };
-    res.send(jz);
+    // var jz = {
+    //     res : "Get works"
+    // };
+
+    res.send(req.body);
 });
 
 module.exports = router;
